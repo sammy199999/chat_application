@@ -1,0 +1,1 @@
+from app.models.postgres_models import Base

@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+alembic
+pydantic
+motor
+psycopg2-binary
+fastapi-cache2
+python-dotenv
