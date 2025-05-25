@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from uuid import UUID
 from enum import Enum
 from datetime import datetime
@@ -12,8 +12,22 @@ class ChatCreate(BaseModel):
     chat_type: ChatType
     name: str
 
+    @field_validator("account_id", "name")
+    @classmethod
+    def not_empty(cls, v, field):
+        if not v or not v.strip():
+            raise ValueError(f"{field.name} must not be empty")
+        return v
+
 class ChatUpdate(BaseModel):
     name: str
+
+    @field_validator("name")
+    @classmethod
+    def not_empty(cls, v, field):
+        if not v or not v.strip():
+            raise ValueError(f"{field.name} must not be empty")
+        return v
 
 class ChatOut(BaseModel):
     chat_id: UUID
@@ -23,3 +37,10 @@ class ChatOut(BaseModel):
     created_at: datetime
     updated_at: datetime
     active: bool
+
+    @field_validator("account_id", "name")
+    @classmethod
+    def not_empty(cls, v, field):
+        if not v or not v.strip():
+            raise ValueError(f"{field.name} must not be empty")
+        return v

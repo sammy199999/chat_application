@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "FastAPI Chat App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for all endpoints of the FastAPI Chat Application"
+  },
+  "item": [
+    {
+      "name": "Create Chat",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/chats/create-chat",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "chats", "create-chat"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"account_id\": \"user1\",\n  \"chat_type\": \"personal\",\n  \"name\": \"Test Chat\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Chat",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/chats/get-chat?chat_id=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "chats", "get-chat"],
+          "query": [
+            { "key": "chat_id", "value": "1" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Chat",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/chats/update-chat?chat_id=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "chats", "update-chat"],
+          "query": [
+            { "key": "chat_id", "value": "1" }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Chat Name\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete Chat",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/chats/delete-chat?chat_id=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "chats", "delete-chat"],
+          "query": [
+            { "key": "chat_id", "value": "1" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add Message",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/messages/add-message",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "messages", "add-message"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"chat_id\": \"chat1\",\n  \"question\": \"What is AI?\",\n  \"response\": \"Artificial Intelligence\",\n  \"response_id\": \"resp1\",\n  \"timestamp\": \"2024-01-01T00:00:00\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Messages",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/messages/get-messages?chat_id=chat1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "messages", "get-messages"],
+          "query": [
+            { "key": "chat_id", "value": "chat1" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Branch",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/branches/create-branch",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "branches", "create-branch"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"base_chat_id\": \"chat1\",\n  \"response_id\": \"resp1\",\n  \"new_branch_id\": \"branch2\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Branches",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/branches/get-branches?chat_id=chat1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "branches", "get-branches"],
+          "query": [
+            { "key": "chat_id", "value": "chat1" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Set Active Branch",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "X-API-Key", "value": "secret-api-key" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/branches/set-active-branch",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "branches", "set-active-branch"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"chat_id\": \"chat1\",\n  \"branch_id\": \"branch2\"\n}"
+        }
+      }
+    }
+  ]
+}

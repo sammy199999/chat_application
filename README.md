@@ -41,6 +41,7 @@ Use a `.env` file to define DB connection strings and API keys.
 
 ## Authentication
 
+All API endpoints require an API Key for authentication.
 Pass the API Key in the request headers:
 
 ```
@@ -49,6 +50,34 @@ X-API-Key: secret-api-key
 
 ## API Endpoints
 
-- `/api/v1/chats/create-chat`
-- `/api/v1/messages/add-message`
-- `/api/v1/branches/create-branch`
+### Chat Endpoints
+- `POST   /api/v1/chats/create-chat`  Create a new chat
+- `GET    /api/v1/chats/get-chat?chat_id={chat_id}`  Get chat by ID
+- `PUT    /api/v1/chats/update-chat?chat_id={chat_id}`  Update chat name
+- `DELETE /api/v1/chats/delete-chat?chat_id={chat_id}`  Delete chat
+
+### Message Endpoints
+- `POST   /api/v1/messages/add-message`  Add a message to a chat
+- `GET    /api/v1/messages/get-messages?chat_id={chat_id}`  Get all messages for a chat
+
+### Branch Endpoints
+- `POST   /api/v1/branches/create-branch`  Create a branch for a chat
+- `GET    /api/v1/branches/get-branches?chat_id={chat_id}`  Get all branches for a chat
+- `PUT    /api/v1/branches/set-active-branch`  Set a branch as active
+
+## Testing
+
+To run all unit tests:
+```bash
+pytest
+```
+
+**Note:**
+All test requests must include the `X-API-Key` header.
+
+## Postman Collection
+
+A sample Postman collection is available for all endpoints.
+You can import the provided JSON file into Postman for quick testing.
+chat_app.postman_collection.json
+---

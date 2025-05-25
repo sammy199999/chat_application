@@ -7,3 +7,5 @@ motor
 psycopg2-binary
 fastapi-cache2
 python-dotenv
+pytest
+httpx
